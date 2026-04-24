@@ -15,7 +15,7 @@ with wave.open(audio_path, "rb") as f:
     print("-" * 30)
 
     print(f"Channels: {params.nchannels}")
-    print(f"Bit Depth: {params.sampwidth} bit")
+    print(f"Bit Depth: {params.sampwidth*8} bit")
     print(f"Sample Rate: {params.framerate} Hz")
     print(f"Total Frames: {params.nframes}")
     print(f"Compression Type: {params.comptype}")
