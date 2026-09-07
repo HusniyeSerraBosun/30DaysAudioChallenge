@@ -50,7 +50,7 @@ The challenge is split into 4 weekly focus areas:
 - [x] **Day 15 - Slow Down (Doubling):** Halve playback speed by repeating consecutive samples.
 
 ### Week 3: Signal Generation & Waveforms
-- [ ] **Day 16 - Sine Wave Synthesis:** Generate and export a pure 440 Hz (A4) tone.
+- [x] **Day 16 - Sine Wave Synthesis:** Generate and export a pure 440 Hz (A4) tone.
 - [ ] **Day 17 - Square Wave Synthesis:** Generate a periodic square waveform ($\pm 1$).
 - [ ] **Day 18 - Sawtooth Wave Synthesis:** Generate a linear ramp-up sawtooth waveform.
 - [ ] **Day 19 - White Noise Generator:** Generate uniform random noise samples.
