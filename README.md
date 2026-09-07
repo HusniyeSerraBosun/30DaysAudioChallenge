@@ -24,7 +24,7 @@ The challenge is split into 4 weekly focus areas:
 3. **Week 3: Signal Generation & Waveforms** *(In Progress)* — Synthesizing standard waveforms and applying clipping curves.
 4. **Week 4: Audio Effects & Analysis** *(Planned)* — Delays, stereo panning, and basic audio metrics (RMS, ZCR).
 
-> **Current Status:** ⚠️ In Progress (16 / 30 Days Completed)
+> **Current Status:** ⚠️ In Progress (18 / 30 Days Completed)
 
 ---
 
@@ -51,8 +51,8 @@ The challenge is split into 4 weekly focus areas:
 
 ### Week 3: Signal Generation & Waveforms
 - [x] **Day 16 - Sine Wave Synthesis:** Generate and export a pure 440 Hz (A4) tone.
-- [ ] **Day 17 - Square Wave Synthesis:** Generate a periodic square waveform ($\pm 1$).
-- [ ] **Day 18 - Sawtooth Wave Synthesis:** Generate a linear ramp-up sawtooth waveform.
+- [x] **Day 17 - Square Wave Synthesis:** Generate a periodic square waveform ($\pm 1$).
+- [x] **Day 18 - Sawtooth Wave Synthesis:** Generate a linear ramp-up sawtooth waveform.
 - [ ] **Day 19 - White Noise Generator:** Generate uniform random noise samples.
 - [ ] **Day 20 - Hard Clipping:** Hard threshold limiting for amplitudes exceeding $0.7$.
 - [ ] **Day 21 - Soft Clipping:** Non-linear threshold saturation using $\tanh$.
