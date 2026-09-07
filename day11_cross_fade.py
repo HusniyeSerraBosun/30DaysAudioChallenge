@@ -4,12 +4,12 @@ import numpy as np
 from dotenv import load_dotenv
 
 load_dotenv()
-song_one = os.getenv("SONG_ONE")
-song_two = os.getenv("SONG_TWO")
-output_path = os.getenv("OUTPUT_FOLDER")
+song1_file = os.getenv("SONG_ONE")
+song2_file = os.getenv("SONG_TWO")
+output_dir = os.getenv("OUTPUT_FOLDER")
 
-def crossfade(song_one, song_two, output_path):
-    with wave.open(song_one, "rb") as one:
+def crossfade(song1_path, song2_path, output_path):
+    with wave.open(song1_path, "rb") as one:
         params_one = one.getparams()
         byte_data_one = one.readframes(params_one.nframes)
         samples_one = np.frombuffer(byte_data_one, dtype=np.int16).copy()
@@ -17,7 +17,7 @@ def crossfade(song_one, song_two, output_path):
         fade_out_ramp = np.linspace(1.0, 0.0, fade_frames_one)
         convert_one = samples_one.tobytes()
 
-    with wave.open(song_two, "rb") as two:
+    with wave.open(song2_path, "rb") as two:
         params_two = two.getparams()
         byte_data_two = two.readframes(params_two.nframes)
         samples_two = np.frombuffer(byte_data_two, dtype=np.int16).copy()
@@ -41,5 +41,5 @@ def crossfade(song_one, song_two, output_path):
     
     print(f"File saved successfully {output_path}")
 
-target_path = os.path.join(output_path, "cross_fade.wav")
-crossfade(song_one, song_two, target_path)
+target_path = os.path.join(output_dir, "cross_fade.wav")
+crossfade(song1_file, song2_file, target_path)

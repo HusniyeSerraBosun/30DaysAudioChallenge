@@ -4,11 +4,11 @@ import numpy as np
 from dotenv import load_dotenv
 
 load_dotenv()
-audio_path = os.getenv("OTHERS")
-output_path = os.getenv("OUTPUT_FOLDER")
+input_audio_file = os.getenv("OTHERS")
+output_dir = os.getenv("OUTPUT_FOLDER")
 
-def audio_loop (audio_path, output_path):
-    with wave.open(audio_path, "rb") as f:
+def audio_loop (input_path, output_file_path):
+    with wave.open(input_path, "rb") as f:
         params = f.getparams()
         byte_data = f.readframes(params.nframes)
         samples = np.frombuffer(byte_data, dtype=np.int16)
@@ -27,10 +27,10 @@ def audio_loop (audio_path, output_path):
     # Convert the populated buffer into raw audio bytes        
     final_bytes = output_buffer.tobytes()
 
-    with wave.open(output_path, "wb") as output:
+    with wave.open(output_file_path, "wb") as output:
         output.setparams(params)
         output.writeframes(final_bytes)
-    print(f"File saved successfully: {output_path} ")
+    print(f"File saved successfully: {output_file_path} ")
 
-target_path = os.path.join(output_path, "audio_loop.wav")
-audio_loop(audio_path, target_path)
+target_path = os.path.join(output_dir, "audio_loop.wav")
+audio_loop(input_audio_file, target_path)

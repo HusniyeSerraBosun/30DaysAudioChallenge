@@ -4,11 +4,11 @@ import numpy as np
 from dotenv import load_dotenv
 
 load_dotenv()
-audio_path = os.getenv("guitar")
-output_path = os.getenv("OUTPUT_FOLDER")
+input_audio_file = os.getenv("guitar")
+output_dir = os.getenv("OUTPUT_FOLDER")
 
-def padding(audio_path, output_folder):
-    with wave.open(audio_path,"rb") as f:
+def padding(input_path, output_file_path):
+    with wave.open(input_path,"rb") as f:
         params = f.getparams()
         byte_data = f.readframes(params.nframes)
         samples = np.frombuffer(byte_data,dtype=np.int16)
@@ -16,14 +16,14 @@ def padding(audio_path, output_folder):
         silence_frames = params.framerate * params.nchannels * 2
         silence_buffer = np.zeros(silence_frames, dtype=np.int16)
 
-    with wave.open (output_folder, "wb") as out:
+    with wave.open (output_file_path, "wb") as out:
         
         final = np.concatenate([samples, silence_buffer])
         out.setparams(params)
         out.writeframes(final.tobytes())
 
-    print(f"File saved successfully {output_path}")
+    print(f"File saved successfully {output_file_path}")
     
-target_path = os.path.join(output_path, "padding.wav")
-padding(audio_path, target_path)
+target_path = os.path.join(output_dir, "padding.wav")
+padding(input_audio_file, target_path)
 

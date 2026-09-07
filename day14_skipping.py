@@ -4,11 +4,11 @@ import numpy as np
 from dotenv import load_dotenv
 
 load_dotenv()
-audio_path = os.getenv("AUDIO")
-output_path = os.getenv("OUTPUT_FOLDER")
+input_audio_file = os.getenv("AUDIO")
+output_dir = os.getenv("OUTPUT_FOLDER")
 
-def skipping(audio_path, output_path):
-    with wave.open(audio_path,"rb") as f:
+def skipping(input_path, output_file_path):
+    with wave.open(input_path,"rb") as f:
         params = f.getparams()
 
         byte_data = f.readframes(params.nframes)
@@ -19,11 +19,11 @@ def skipping(audio_path, output_path):
         samples = samples.flatten()
         final = samples.tobytes()
 
-    with wave.open(output_path, "wb") as out:
+    with wave.open(output_file_path, "wb") as out:
         out.setparams(params)
         out.writeframes(final)
 
-    print(f"File saved successfully: {output_path}")
+    print(f"File saved successfully: {output_file_path}")
 
-target_path = os.path.join(output_path, "skipping.wav")
-skipping(audio_path, target_path)
+target_path = os.path.join(output_dir, "skipping.wav")
+skipping(input_audio_file, target_path)

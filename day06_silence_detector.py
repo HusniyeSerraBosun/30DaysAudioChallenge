@@ -4,10 +4,10 @@ import numpy as np
 from dotenv import load_dotenv
 
 load_dotenv()
-audio_path = os.getenv("AUDIO_PATH")
+input_audio_file = os.getenv("AUDIO_PATH")
 
-def zero_calc(audio_path):
-    with wave.open(audio_path, "rb") as f:
+def zero_calc(input_path):
+    with wave.open(input_path, "rb") as f:
         params = f.getparams()
 
         byte_data = f.readframes(params.nframes)
@@ -22,4 +22,4 @@ def zero_calc(audio_path):
 
     print(f"Total silence duration is : {int(minutes):02d}:{int(seconds):02d}")
 
-zero_calc(audio_path)
+zero_calc(input_audio_file)
