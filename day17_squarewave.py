@@ -30,5 +30,5 @@ def square_wave(output_file_path):
 
     print(f"file saved successfully {output_file_path}")
 
-target_file_path = os.path.join(output_dir, "square_sin_440hz.wav")
+target_file_path = os.path.join(output_dir, "square_440hz.wav")
 square_wave(target_file_path)
