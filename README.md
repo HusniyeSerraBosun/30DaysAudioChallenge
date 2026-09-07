@@ -24,7 +24,7 @@ The challenge is split into 4 weekly focus areas:
 3. **Week 3: Signal Generation & Waveforms** *(In Progress)* — Synthesizing standard waveforms and applying clipping curves.
 4. **Week 4: Audio Effects & Analysis** *(Planned)* — Delays, stereo panning, and basic audio metrics (RMS, ZCR).
 
-> **Current Status:** ⚠️ In Progress (15 / 30 Days Completed)
+> **Current Status:** ⚠️ In Progress (16 / 30 Days Completed)
 
 ---
 
