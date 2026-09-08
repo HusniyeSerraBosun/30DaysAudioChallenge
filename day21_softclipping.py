@@ -22,8 +22,8 @@ def soft_clipping(output_file_path):
         out.setnchannels(1)
         out.setsampwidth(2)
         out.setframerate(samprate)
-        out.setnframes(len(signal))
-        out.writeframes(signal.tobytes())
+        out.setnframes(len(signal_pcm))
+        out.writeframes(signal_pcm.tobytes())
 
     print(f"File saved successfully {output_file_path}")
 
