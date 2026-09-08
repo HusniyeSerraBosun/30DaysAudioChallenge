@@ -12,11 +12,11 @@ def soft_clipping(output_file_path):
     A = 1
     f = 440
     phi = 0
-    drive = 5.0
+    drive = 1.8
     t = np.linspace(0, duration, samprate*duration, endpoint=False)
     signal = A * np.sin(2*np.pi * f * t +phi)
-    signal = ((np.tanh(signal*drive))*0.8) * 32767 #saturation-> output gain-> pcm
-    signal = np.clip(signal, -32768, 32767).astype(np.int16)
+    signal_soft = (np.tanh(signal * drive) / np.tanh(drive)) * 0.8
+    signal_pcm = np.clip(signal_soft * 32767, -32768, 32767).astype(np.int16)
 
     with wave.open(output_file_path, "wb") as out:
         out.setnchannels(1)

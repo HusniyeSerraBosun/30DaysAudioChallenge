@@ -12,7 +12,7 @@ def hard_clipping(output_file_path):
     A = 1
     phi = 0
     f = 440
-    threshold = 0.5
+    threshold = 0.1
     gain = 0.8
 
     t = np.linspace(0, duration, samprate*duration, endpoint=False)
