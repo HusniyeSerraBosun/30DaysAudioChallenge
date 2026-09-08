@@ -12,18 +12,23 @@ def hard_clipping(output_file_path):
     A = 1
     phi = 0
     f = 440
-    threshold = 0.7
-    t = np.linspace(0, duration, samprate*duration, endpoint=False)
+    threshold = 0.5
+    gain = 0.8
 
+    t = np.linspace(0, duration, samprate*duration, endpoint=False)
     signal = A * np.sin(2*np.pi * f * t + phi)
-    signal = (np.clip(signal, -threshold, threshold)*32767).astype(np.int16)
+
+    clipped = np.clip(signal, -threshold, threshold)
+    normalized = (clipped/threshold) * gain
+
+    signal_pcm = np.clip(normalized*32767, -32768, 32767).astype(np.int16)
 
     with wave.open(output_file_path, "wb") as out:
         out.setnchannels(1)
         out.setsampwidth(2)
         out.setframerate(samprate)
         out.setnframes(len(signal))
-        out.writeframes(signal.tobytes())
+        out.writeframes(signal_pcm.tobytes())
 
     print(f"File saved successfully {output_file_path}")
 
