@@ -59,7 +59,7 @@ The challenge is split into 4 weekly focus areas:
 - [ ] **Day 22 - Amplitude Modulation (AM):** Modulate carrier amplitude with an LFO (tremolo).
 
 ### Week 4: Audio Effects & Analysis
-- [ ] **Day 23 - DC Offset Removal:** Calculate average signal displacement and re-center at zero.
+- [x] **Day 23 - DC Offset Removal:** Calculate average signal displacement and re-center at zero.
 - [ ] **Day 24 - Stereo Panning:** Shift audio from left to right channel over 5 seconds.
 - [ ] **Day 25 - Bitcrusher:** Reduce audio resolution via sample quantization/rounding.
 - [ ] **Day 26 - RMS Calculation:** Calculate Root Mean Square energy across audio frames.
